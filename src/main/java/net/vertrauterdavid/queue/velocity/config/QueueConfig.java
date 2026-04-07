@@ -1,7 +1,7 @@
 package net.vertrauterdavid.queue.velocity.config;
 
-import de.exlll.configlib.Configuration;
 import de.exlll.configlib.Comment;
+import de.exlll.configlib.Configuration;
 import de.exlll.configlib.YamlConfigurations;
 import lombok.Getter;
 

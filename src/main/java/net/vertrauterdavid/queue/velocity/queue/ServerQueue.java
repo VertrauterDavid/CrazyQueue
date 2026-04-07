@@ -11,8 +11,8 @@ import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import net.vertrauterdavid.queue.velocity.CrazyQueueVelocity;
 import net.vertrauterdavid.queue.velocity.util.ColorUtil;
 
-import java.util.Queue;
 import java.util.Map;
+import java.util.Queue;
 import java.util.concurrent.*;
 
 @RequiredArgsConstructor
