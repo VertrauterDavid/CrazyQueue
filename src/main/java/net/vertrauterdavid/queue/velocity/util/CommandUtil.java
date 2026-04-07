@@ -17,7 +17,7 @@ public class CommandUtil {
     }
 
     public static List<String> finishComplete(List<String> list, String[] args) {
-        if (args[args.length - 1].replaceAll(" ", "").equalsIgnoreCase("")) return list;
+        if (args[args.length - 1].replace(" ", "").equalsIgnoreCase("")) return list;
         return list.stream().filter(content -> content.toLowerCase().startsWith(args[args.length - 1].toLowerCase())).sorted().toList();
     }
 

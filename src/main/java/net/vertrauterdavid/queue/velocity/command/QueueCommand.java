@@ -11,6 +11,7 @@ import net.vertrauterdavid.queue.velocity.util.CommandUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class QueueCommand implements RawCommand {
 
@@ -35,20 +36,20 @@ public class QueueCommand implements RawCommand {
         }
 
         if (args.length == 1) {
-            String server = args[0];
-            ServerQueue serverQueue = queueManager.getQueue(server);
+            final String server = args[0];
+            final ServerQueue serverQueue = queueManager.getQueue(server);
             if (serverQueue == null) {
-                player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "The server " + ColorUtil.RED + server + " §7does not exist."));
+                player.sendMessage(ColorUtil.translate(CrazyQueueVelocity.getInstance().getQueueConfig().format("messages.server-not-found", Map.of("server", server))));
                 return;
             }
 
             if (serverQueue.getPlayerQueue().contains(player)) {
-                player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "You are already in the queue for " + ColorUtil.RED + server + "§7."));
+                player.sendMessage(ColorUtil.translate(CrazyQueueVelocity.getInstance().getQueueConfig().format("messages.already-in-queue", Map.of("server", server))));
                 return;
             }
 
             if (player.getCurrentServer().map(serverConnection -> serverConnection.getServer().getServerInfo().getName().equalsIgnoreCase(server)).orElse(false)) {
-                player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "You are already on the server " + ColorUtil.RED + server + "§7."));
+                player.sendMessage(ColorUtil.translate(CrazyQueueVelocity.getInstance().getQueueConfig().format("messages.already-on-server", Map.of("server", server))));
                 return;
             }
 
@@ -57,13 +58,13 @@ public class QueueCommand implements RawCommand {
             return;
         }
 
-        player.sendMessage(ColorUtil.translate(ColorUtil.PREFIX + "Please use: " + ColorUtil.RED + "/" + name + " <server>"));
+        player.sendMessage(ColorUtil.translate(CrazyQueueVelocity.getInstance().getQueueConfig().format("messages.queue-usage", Map.of("command", name))));
     }
 
     @Override
     public List<String> suggest(Invocation invocation) {
-        List<String> list = new ArrayList<>();
-        String[] args = CommandUtil.getArgs(invocation);
+        final List<String> list = new ArrayList<>();
+        final String[] args = CommandUtil.getArgs(invocation);
 
         if (args.length == 1) {
             list.addAll(queueManager.getAllServerNames());

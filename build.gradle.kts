@@ -24,6 +24,7 @@ dependencies {
     annotationProcessor(libs.velocity.api)
     annotationProcessor(libs.lombok)
 
+    implementation(libs.configlib.yaml)
     implementation("redis.clients:jedis:5.1.0")
 }
 

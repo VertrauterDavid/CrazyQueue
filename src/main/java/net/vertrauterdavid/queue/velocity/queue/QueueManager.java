@@ -4,7 +4,6 @@ import com.velocitypowered.api.proxy.Player;
 import lombok.Getter;
 import net.vertrauterdavid.queue.velocity.CrazyQueueVelocity;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,13 +15,13 @@ public class QueueManager {
 
     public QueueManager() {
         CrazyQueueVelocity.getInstance().getProxyServer().getAllServers().forEach((registeredServer) -> {
-            if (Arrays.stream(CrazyQueueVelocity.DISABLED_QUEUES).toList().contains(registeredServer.getServerInfo().getName())) return;
+            if (CrazyQueueVelocity.getInstance().getQueueConfig().isQueueDisabled(registeredServer.getServerInfo().getName())) return;
 
-            ServerQueue serverQueue = new ServerQueue(registeredServer);
+            final ServerQueue serverQueue = new ServerQueue(registeredServer);
             serverQueue.startScheduler();
             serverQueues.put(registeredServer.getServerInfo().getName().toLowerCase(), serverQueue);
 
-            ServerListener serverListener = new ServerListener(registeredServer) {
+            final ServerListener serverListener = new ServerListener(registeredServer) {
                 @Override
                 public void markOnline() {
                     super.markOnline();

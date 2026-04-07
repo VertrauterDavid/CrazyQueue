@@ -6,16 +6,14 @@ import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
 import net.vertrauterdavid.queue.velocity.CrazyQueueVelocity;
 
-import java.util.Arrays;
-
 public class ServerConnectedListener {
 
     @Subscribe
-    public void handle(ServerConnectedEvent event) {
-        Player player = event.getPlayer();
-        RegisteredServer targetServer = event.getServer();
+    public void onServerConnect(ServerConnectedEvent event) {
+        final Player player = event.getPlayer();
+        final RegisteredServer targetServer = event.getServer();
 
-        if (Arrays.stream(CrazyQueueVelocity.DISABLED_QUEUES).toList().contains(targetServer.getServerInfo().getName())) {
+        if (CrazyQueueVelocity.getInstance().getQueueConfig().isQueueDisabled(targetServer.getServerInfo().getName())) {
             CrazyQueueVelocity.getInstance().getOldServers().remove(player);
             return;
         }

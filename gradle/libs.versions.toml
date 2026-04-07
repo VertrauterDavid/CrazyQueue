@@ -1,13 +1,15 @@
 [versions]
 paper-api = "1.21.4-R0.1-SNAPSHOT"
-velocity-api = "3.4.0-SNAPSHOT"
+velocity-api = "3.4.0"
 lombok = "1.18.42"
 shadow = "8.3.0"
+configlib = "4.8.1"
 
 [libraries]
 paper-api = { module = "io.papermc.paper:paper-api", version.ref = "paper-api" }
 velocity-api = { module = "com.velocitypowered:velocity-api", version.ref = "velocity-api" }
 lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
+configlib-yaml = { module = "de.exlll:configlib-yaml", version.ref = "configlib" }
 
 [plugins]
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }

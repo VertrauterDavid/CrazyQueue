@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Objects;
 
@@ -15,6 +16,8 @@ public class CrazyQueueBukkit extends JavaPlugin implements PluginMessageListene
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "crazyqueue:tobukkit", this);
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "crazyqueue:toproxy");
 
@@ -47,6 +50,6 @@ public class CrazyQueueBukkit extends JavaPlugin implements PluginMessageListene
     }
 
     @Override
-    public void onPluginMessageReceived(@NotNull String channel, @NotNull Player player, byte[] bytes) { }
+    public void onPluginMessageReceived(@NotNull String channel, @NotNull Player player, byte @NonNull [] bytes) { }
 
 }

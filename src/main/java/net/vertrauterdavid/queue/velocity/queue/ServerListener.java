@@ -17,7 +17,7 @@ public class ServerListener {
     private int status = 0; // 0 = unknown, 1 = online, 2 = offline
 
     public void startPinging() {
-        CrazyQueueVelocity.getInstance().getProxyServer().getScheduler().buildTask(CrazyQueueVelocity.getInstance(), this::ping).repeat((long) (CrazyQueueVelocity.PING_TIMER * 1000), TimeUnit.SECONDS).schedule();
+        CrazyQueueVelocity.getInstance().getProxyServer().getScheduler().buildTask(CrazyQueueVelocity.getInstance(), this::ping).repeat((long) CrazyQueueVelocity.getInstance().getQueueConfig().getPingIntervalMillis(), TimeUnit.MILLISECONDS).schedule();
     }
 
     public void ping() {

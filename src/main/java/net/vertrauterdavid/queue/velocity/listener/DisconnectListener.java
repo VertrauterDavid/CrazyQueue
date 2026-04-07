@@ -8,8 +8,8 @@ import net.vertrauterdavid.queue.velocity.CrazyQueueVelocity;
 public class DisconnectListener {
 
     @Subscribe
-    public void handle(DisconnectEvent event) {
-        Player player = event.getPlayer();
+    public void onDisconnect(DisconnectEvent event) {
+        final Player player = event.getPlayer();
 
         CrazyQueueVelocity.getInstance().getQueueManager().leaveAllQueues(player);
         CrazyQueueVelocity.getInstance().getOldServers().remove(player);
