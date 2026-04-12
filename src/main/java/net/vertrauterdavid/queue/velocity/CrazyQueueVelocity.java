@@ -1,5 +1,6 @@
 package net.vertrauterdavid.queue.velocity;
 
+import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.Plugin;
@@ -19,7 +20,6 @@ import net.vertrauterdavid.queue.velocity.listener.PluginMessageListener;
 import net.vertrauterdavid.queue.velocity.listener.ServerConnectedListener;
 import net.vertrauterdavid.queue.velocity.queue.QueueManager;
 
-import javax.inject.Inject;
 import java.nio.file.Path;
 import java.util.WeakHashMap;
 
@@ -27,7 +27,7 @@ import java.util.WeakHashMap;
         id = "crazyqueue",
         name = "CrazyQueue",
         version = "1.0",
-        authors = {"VertrauterDavid"}
+        authors = {"VertrauterDavid", "JavaMio"}
 )
 @Getter
 public class CrazyQueueVelocity {

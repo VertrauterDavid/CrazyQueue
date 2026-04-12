@@ -14,10 +14,10 @@ import java.util.Map;
 @Getter
 public class QueueConfig {
 
-    private final QueueSettings queue = new QueueSettings();
-    private final Colors colors = new Colors();
-    private final Messages messages = new Messages();
-    private final Actionbar actionbar = new Actionbar();
+    private QueueSettings queue = new QueueSettings();
+    private Colors colors = new Colors();
+    private Messages messages = new Messages();
+    private Actionbar actionbar = new Actionbar();
 
     public static QueueConfig load(Path dataDirectory) {
         try {
@@ -119,24 +119,24 @@ public class QueueConfig {
 
     @Configuration
     public static class Colors {
-        private final String blue = "&#559eff";
-        private final String green = "&#7cfc00";
-        private final String red = "&#ff0000";
+        private String blue = "&#559eff";
+        private String green = "&#7cfc00";
+        private String red = "&#ff0000";
     }
 
     @Configuration
     public static class Messages {
-        private final String prefix = "&8| %blue%TrySmp &8> &7";
-        private final String serverNotFound = "%prefix%The server %red%%server% &7does not exist.";
-        private final String queueCleared = "%prefix%The queue of the server %red%%server% &7has been cleared.";
-        private final String connectingPlayers = "%prefix%%amount% player%plural% will be connected.";
-        private final String noSendallPermission = "%prefix%You do not have permission to send all players";
-        private final String playerNotOnline = "%prefix%The player %red%%player% &7is not online.";
-        private final String playersAddedToQueue = "%prefix%%green%%amount% &7player%plural% have been added to the queue for %green%%server%&7.";
-        private final String alreadyInQueue = "%prefix%You are already in the queue for %red%%server%&7.";
-        private final String alreadyOnServer = "%prefix%You are already on the server %red%%server%&7.";
-        private final String queueUsage = "%prefix%Please use: %red%/%command% <server>";
-        private final List<String> crazyqueueUsages = List.of(
+        private String prefix = "&8| %blue%TrySmp &8> &7";
+        private String serverNotFound = "%prefix%The server %red%%server% &7does not exist.";
+        private String queueCleared = "%prefix%The queue of the server %red%%server% &7has been cleared.";
+        private String connectingPlayers = "%prefix%%amount% player%plural% will be connected.";
+        private String noSendallPermission = "%prefix%You do not have permission to send all players";
+        private String playerNotOnline = "%prefix%The player %red%%player% &7is not online.";
+        private String playersAddedToQueue = "%prefix%%green%%amount% &7player%plural% have been added to the queue for %green%%server%&7.";
+        private String alreadyInQueue = "%prefix%You are already in the queue for %red%%server%&7.";
+        private String alreadyOnServer = "%prefix%You are already on the server %red%%server%&7.";
+        private String queueUsage = "%prefix%Please use: %red%/%command% <server>";
+        private List<String> crazyqueueUsages = List.of(
                 "%prefix%Please use: %red%/%command% info",
                 "%prefix%Please use: %red%/%command% info --players",
                 "%prefix%Please use: %red%/%command% clear <server>",
@@ -144,20 +144,20 @@ public class QueueConfig {
                 "%prefix%Please use: %red%/%command% connect <queue> <amount>",
                 "%prefix%Please use: %red%/%command% send <playerName / all / current / hub> <server>"
         );
-        private final String queueInfoHeader = "&8|";
-        private final String queueInfoEntryPlayers = "&8| %green%%server% &8(&7%amount%&8): &7%players%";
-        private final String queueInfoEntry = "&8| %green%%server%&8: &7%amount% players";
-        private final String queueInfoTime = "&8| &7Queue Time: %green%%time%ms";
-        private final String addedToQueue = "%prefix%You have been added to the queue for %green%%server%";
-        private final String backendNoReason = "no reason";
+        private String queueInfoHeader = "&8|";
+        private String queueInfoEntryPlayers = "&8| %green%%server% &8(&7%amount%&8): &7%players%";
+        private String queueInfoEntry = "&8| %green%%server%&8: &7%amount% players";
+        private String queueInfoTime = "&8| &7Queue Time: %green%%time%ms";
+        private String addedToQueue = "%prefix%You have been added to the queue for %green%%server%";
+        private String backendNoReason = "no reason";
     }
 
     @Configuration
     public static class Actionbar {
-        private final String queuePosition = "%green%#%position%&7 in the queue to %green%&n%server%&r &8(&7Waiting: %waiting%&8)";
-        private final String queueClear = " ";
-        private final String connected = "%green%Successfully connected to %server%";
-        private final String failedToConnect = "%red%Failed to connect to %server%";
+        private String queuePosition = "%green%#%position%&7 in the queue to %green%&n%server%&r &8(&7Waiting: %waiting%&8)";
+        private String queueClear = " ";
+        private String connected = "%green%Successfully connected to %server%";
+        private String failedToConnect = "%red%Failed to connect to %server%";
     }
 
     public String format(String key, Map<String, String> placeholders) {

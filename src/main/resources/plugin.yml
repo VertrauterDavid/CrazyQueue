@@ -2,7 +2,7 @@ name: CrazyQueue
 version: 1.0
 api-version: 1.19
 main: net.vertrauterdavid.queue.bukkit.CrazyQueueBukkit
-author: VertrauterDavid
+author: VertrauterDavid & JavaMio
 website: https://vertrauterdavid.net/ & https://github.com/vertrauterdavid/
 
 commands:
